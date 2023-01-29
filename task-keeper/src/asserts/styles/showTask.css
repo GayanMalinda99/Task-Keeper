@@ -1,0 +1,14 @@
+.showtask {
+    width: 65%;
+    margin-left: 17%;
+    border: 1px solid black;
+}
+
+.task {
+    width: 95%;
+    border: 1px solid black;
+}
+
+.task > div {
+    margin-left: auto;
+}

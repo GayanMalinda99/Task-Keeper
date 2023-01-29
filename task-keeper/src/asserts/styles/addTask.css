@@ -1,0 +1,10 @@
+.addtask {
+    width: 90%;
+    margin-left: 5%;
+}
+
+textarea::placeholder {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 4%;
+}
