@@ -8,3 +8,7 @@ textarea::placeholder {
     vertical-align: middle;
     padding-top: 4%;
 }
+
+.btn-radious {
+    border-radius: 6px;
+}

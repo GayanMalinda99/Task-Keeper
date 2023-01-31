@@ -10,16 +10,6 @@ const AddTask = () => {
         { title: "task3", description: "have to complete task 3" },
       ];
 
-    // const handleInputChange = (e) => {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // };
-
-    // const handleClear = () => {
-    //     setFormData(prev => {
-    //     return {...prev, title:"", description:""}
-    //     }) ;
-    // }
-
     return (
         <div className="addtask">
             <form>
@@ -30,7 +20,7 @@ const AddTask = () => {
                     value={formData.title}
                     style={{ width: "70%", marginLeft: "15%", border: "1px solid black" }}
                     name="title"
-                    // onChange={handleInputChange}
+                    // onChange={}
                 />
                 <textarea
                     rows={4}
@@ -44,17 +34,17 @@ const AddTask = () => {
                     placeholder="Description"
                     name="description"
                     value={formData.description}
-                    // onChange={handleInputChange}
+                    // onChange={}
                 ></textarea>
                 <div
                 className="d-flex justify-content-end"
                 style={{ marginRight: "15%" }}
                 >
-                    {/* <button type="button" className="btn btn-secondary btn-sm m-2 px-3" onClick={handleClear}></button> */}
+                    {/* <button type="button" className="btn btn-secondary btn-sm m-2 px-3" onClick={}></button> */}
                     <button type="button" className="btn btn-secondary btn-sm m-2 px-3" >
                         Clear
                     </button>
-                    <button type="submit" className="btn btn-primary btn-sm m-2">
+                    <button type="submit" className="btn btn-primary btn-sm m-2 btn-radious">
                         Add Task
                     </button>
                 </div>
