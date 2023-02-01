@@ -1,7 +1,7 @@
 import React from "react";
 import AddTask from "../components/addTask";
 
-const AddPage = () => {
+const AddTaskPage = () => {
   return (
     <div className="add row mt-5">
       <AddTask />
@@ -9,4 +9,4 @@ const AddPage = () => {
   );
 };
 
-export default AddPage;
+export default AddTaskPage;

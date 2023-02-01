@@ -20,7 +20,7 @@ const ShowTask = () => {
                 Edit
               </button>
               <button type="button" className="btn btn-danger btn-sm m-2 btn-radious">
-                delete
+                Delete
               </button>
             </div>
           </div>
