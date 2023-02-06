@@ -1,13 +1,14 @@
 import './App.css';
 import HomePage from "./pages/homePage";
 import AddTaskPage from "./pages/addPage";
-import AddTask from "./components/addTask";
-import ShowTask from "./components/showTask";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
   return (
     <div className="row mt-5" style={{ alignItems: "center" }}>
+      <Provider store={store}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Navigate to="tasks/home" />} />
@@ -19,9 +20,8 @@ function App() {
                   path="*"
                   element={<Navigate to="/tasks/home" replace />}/>
           </Routes>
-        </BrowserRouter> 
-        {/* <AddTask />
-        <ShowTask /> */}
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }

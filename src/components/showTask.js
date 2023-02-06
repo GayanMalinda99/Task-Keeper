@@ -1,5 +1,8 @@
 import React from "react";
 import "../asserts/styles/showTask.css";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { fetchAllTasks } from "../actions/taskAction"
 
 const ShowTask = () => {
 
@@ -11,7 +14,7 @@ const ShowTask = () => {
 
   return (
     <div className="showtask">
-      {taskListDummy.map((task) => {
+      {this.props.tasks.map((task) => {
         return (
           <div className="d-flex task m-3" style={{ alignItems: "center" }}>
             <span>{task.title}</span>
@@ -30,4 +33,10 @@ const ShowTask = () => {
   );
 };
 
-export default ShowTask;
+function mapStateToProps(state){
+  return {
+    tasks: state.tasks
+  }
+}
+
+export default connect(mapStateToProps)(ShowTask)
