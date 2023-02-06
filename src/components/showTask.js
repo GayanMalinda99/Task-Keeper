@@ -1,42 +1,82 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../asserts/styles/showTask.css";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { fetchAllTasks } from "../actions/taskAction"
+import { useSelector, useDispatch } from "react-redux";
+import { 
+  deleteTask, 
+  getAllTasks, 
+  setEdit 
+} from "../actions/taskAction";
+import { Link } from "react-router-dom";
 
-const ShowTask = () => {
+const ShowTask = ({ setShowMessage }) => {
+  const { tasks, edit } = useSelector((state) => state);
+  const [clicked, setClicked] = useState(false);
+  const dispatch = useDispatch();
 
-    const taskListDummy = [
-    { title: "Task1", description: "have to complete task 1" },
-    { title: "Task2", description: "have to complete task 2" },
-    { title: "Task3", description: "have to complete task 3" },
-  ];
+  const handleClick = () => {
+    setClicked((prev) => !prev);
+  };
+
+  const handleDelete = (e) => {
+    setShowMessage((prev) => !prev);
+    if (!edit) {
+      dispatch(deleteTask(e.target.id));
+      setTimeout(() => {
+        setShowMessage((prev) => !prev);
+      }, 3000);
+    }
+  };
+
+  const handleEdit = (e) => {
+    dispatch(setEdit(e.target.id));
+  };
+
+  useEffect(() => {
+    dispatch(getAllTasks());
+  }, []);
 
   return (
-    <div className="showtask">
-      {this.props.tasks.map((task) => {
-        return (
-          <div className="d-flex task m-3" style={{ alignItems: "center" }}>
-            <span>{task.title}</span>
-            <div style={{ display: "inline-block" }}>
-              <button type="button" className="btn btn-success btn-sm m-2 px-3 btn-radious">
-                Edit
-              </button>
-              <button type="button" className="btn btn-danger btn-sm m-2 btn-radious">
-                Delete
-              </button>
+    <>
+      {tasks.length !== 0 && (
+        <div className="showtask">
+          {tasks.map((task, index) => {
+            <div className="task m-3" onClick={handleClick}>
+            <div className="d-flex " style={{ alignItems: "center" }} key={index}>
+              <span className="ml-1" style={{ alignItems: "center" }}>
+                {task.title}
+              </span>
+              <div className="buttondiv">
+                <Link to="/tasks/add">
+                  <button
+                    type="button"
+                    className="btn btn-success btn-sm m-2 px-3"
+                    id={task.id}
+                    onClick={handleEdit}
+                  >
+                    Edit
+                  </button>
+                </Link>
+                <button
+                  type="button"
+                  className="btn btn-danger btn-sm m-2"
+                  id={task.id}
+                  onClick={handleDelete}
+                >
+                  delete
+                </button>
+              </div>
             </div>
+            {clicked && (
+              <div className="ml-1" style={{ margineLeft: "5%" }}>
+                {task.description}
+              </div>
+            )}
           </div>
-        );
-      })}
-    </div>
+          })}
+        </div>
+      )}
+    </>
   );
 };
 
-function mapStateToProps(state){
-  return {
-    tasks: state.tasks
-  }
-}
-
-export default connect(mapStateToProps)(ShowTask)
+export default ShowTask
