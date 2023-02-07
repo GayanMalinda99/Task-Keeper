@@ -12,25 +12,45 @@ import { SET_ALL_TASKS,
 } from "../constants/actionTypes";
 
 export const addTask = (task) => async (dispatch) => {
-  const { data } = await addTaskApi(task);
-  dispatch({ type: ADD_TASK, data: data });
+  try {
+    const { data } = await addTaskApi(task);
+    dispatch({ type: ADD_TASK, data: data });
+  } catch (error) {
+    console.log("Error(addTask): " + error);
+  }    
 };
 
 export const getAllTasks = () => async (dispatch) => {
-  const { data } = await getAllTasksApi();
-  dispatch({ type: SET_ALL_TASKS, data: data });
+  try {
+    const { data } = await getAllTasksApi();
+    dispatch({ type: SET_ALL_TASKS, data: data });
+  } catch (error) {
+    console.log("Error(getAllTasks): " + error);
+  } 
 };
 
 export const deleteTask = (id) => async (dispatch) => {
-  await deleteTaskApi(id);
-  dispatch({ type: DELETE_TASK, data: id });
+  try {
+    await deleteTaskApi(id);
+    dispatch({ type: DELETE_TASK, data: id });
+  } catch (error) {
+    console.log("Error(deleteTask): " + error);
+  } 
 };
 
 export const setEdit = (id) => (dispatch) => {
-  dispatch({ type: SET_EDIT, data: id });
+  try {
+    dispatch({ type: SET_EDIT, data: id });
+  } catch (error) {
+    console.log("Error(setEdit): " + error);
+  } 
 };
 
 export const editTask = (task, id) => async (dispatch) => {
-  const { data } = await editTaskApi(id, task);
-  dispatch({ type: EDIT_TASK, data: { data, id } });
+  try {
+    const { data } = await editTaskApi(id, task);
+    dispatch({ type: EDIT_TASK, data: { data, id } });
+  } catch (error) {
+    console.log("Error(editTask): " + error);
+  } 
 };
