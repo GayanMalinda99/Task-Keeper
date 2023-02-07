@@ -19,7 +19,7 @@ const ShowTask = ({ setShowMessage }) => {
       dispatch(deleteTask(e.target.id));
       setTimeout(() => {
         setShowMessage((prev) => !prev);
-      }, 3000);
+      }, 1000);
     }
   };
 
