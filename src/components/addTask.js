@@ -31,7 +31,7 @@ const AddTask = () => {
       dispatch(setEdit(null));
       setTimeout(() => {
         setShowMessage((prev) => !prev);
-      }, 4000);
+      }, 1000);
     };
   
     useEffect(() => {

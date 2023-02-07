@@ -38,7 +38,7 @@ const ShowTask = ({ setShowMessage }) => {
           {tasks.map((task, index) => (
             <div className="task m-3" >
               <div
-                className="d-flex "
+                className="d-flex"
                 style={{ alignItems: "center" }}
                 key={index}
               >
