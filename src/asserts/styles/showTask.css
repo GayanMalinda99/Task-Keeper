@@ -15,3 +15,8 @@
 .btn-radious {
     border-radius: 15px;
 }
+
+.button-div {
+    margin-left: auto;
+    display: inline-block;
+}
