@@ -8,7 +8,6 @@ import store from './store/store';
 function App() {
   return (
     <div className="row mt-5" style={{ alignItems: "center" }}>
-      <Provider store={store}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Navigate to="tasks/home" />} />
@@ -21,7 +20,6 @@ function App() {
                   element={<Navigate to="/tasks/home" replace />}/>
           </Routes>
         </BrowserRouter>
-      </Provider>
     </div>
   );
 }
