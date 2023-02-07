@@ -2,8 +2,6 @@ import './App.css';
 import HomePage from "./pages/homePage";
 import AddTaskPage from "./pages/addPage";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Provider } from 'react-redux';
-import store from './store/store';
 
 function App() {
   return (
