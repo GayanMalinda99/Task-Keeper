@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../asserts/styles/addTask.css";
 import { addTask, editTask, setEdit } from "../actions/taskAction";
-import { getAllTasks } from "../actions/taskAction";
 
 const AddTask = () => {
     const [formData, setFormData] = useState({ title: "", description: "" });
@@ -50,7 +49,7 @@ const AddTask = () => {
         <div className="addtask">
             {showMessage ? (
               <div style={{ color: "green" }}>
-                <h5>Task Uploaded Successfully</h5>
+                <h5>Task Added Successfully</h5>
               </div>
             ) : (
               ""

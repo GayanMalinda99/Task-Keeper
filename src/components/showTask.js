@@ -34,7 +34,7 @@ const ShowTask = ({ setShowMessage }) => {
   return (
     <>
       {tasks.length !== 0 && (
-        <div className="showtask">
+        <div styles={{width: "65%", marginLeft: "17%", border: "1px solid black"}}>
           {tasks.map((task, index) => {
             <div className="task m-3" onClick={handleClick}>
               <div
