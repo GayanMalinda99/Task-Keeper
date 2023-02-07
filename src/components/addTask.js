@@ -31,7 +31,7 @@ const AddTask = () => {
       dispatch(setEdit(null));
       setTimeout(() => {
         setShowMessage((prev) => !prev);
-      }, 3000);
+      }, 4000);
     };
   
     useEffect(() => {
@@ -81,13 +81,13 @@ const AddTask = () => {
                     required
                 ></textarea>
                 <div
-                className="d-flex justify-content-end"
-                style={{ marginRight: "15%" }}
+                  className="d-flex justify-content-end"
+                  style={{ marginRight: "15%" }}
                 >
                     <button type="button" className="btn btn-secondary btn-sm m-2 px-3" onClick={handleClear}>
                         Clear
                     </button>
-                    <button type="submit" className="btn btn-primary btn-sm m-2 btn-radious">
+                    <button type="submit" className="btn btn-primary btn-sm m-2">
                         {data.edit ? "Edit" : "Add Task"}
                     </button>
                 </div>

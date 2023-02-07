@@ -35,15 +35,15 @@ const ShowTask = ({ setShowMessage }) => {
     <>
       {tasks.length !== 0 && (
         <div styles={{width: "65%", marginLeft: "17%", border: "1px solid black"}}>
-          {tasks.map((task, index) => {
-            <div className="task m-3" onClick={handleClick}>
+          {tasks.map((task, index) => (
+            <div className="task m-3" >
               <div
                 className="d-flex "
                 style={{ alignItems: "center" }}
                 key={index}
               >
-                <span className="ml-1" style={{ alignItems: "center" }}>
-                  {task.title}
+                <span className="ml-1 p-2" style={{ alignItems: "center" }} onClick={handleClick}>
+                  <b>{task.title}</b>
                 </span>
                 <div className="button-div">
                   <Link to="/tasks/add">
@@ -58,7 +58,7 @@ const ShowTask = ({ setShowMessage }) => {
                   </Link>
                   <button
                     type="button"
-                    className="btn btn-danger btn-sm m-2"
+                    className="btn btn-danger btn-sm m-2 px-2"
                     id={task.id}
                     onClick={handleDelete}
                   >
@@ -67,12 +67,12 @@ const ShowTask = ({ setShowMessage }) => {
                 </div>
               </div>
               {clicked && (
-                <div className="ml-1" style={{ margineLeft: "5%" }}>
+                <div className="ml-1 mt-1 p-2" style={{ margineLeft: "5%" }}>
                   {task.description}
                 </div>
               )}
-            </div>;
-          })}
+            </div>)
+          )}
         </div>
       )}
     </>

@@ -12,19 +12,19 @@ const HomePage = () => {
   };
 
   return (
-    <div className="row mt-5">
+    <div className="row mt-2">
       {showMessage 
       ? <div style={{margineLeft:"50%", color:"red"}}>
         <h5>Task Deleted Successfully</h5>
       </div> : ""}
       <div style={{ alignItems: "center" }}>
         <div className="d-flex justify-content-center title ">
-            <p className="m-3 mt-4 mb-4"><b>TASK KEEPER</b></p>
+            <p className="m-3 mt-4 mb-4 "><b>TASK KEEPER</b></p>
         </div>
         <div className="my-4" style={{ marginLeft: "46.5%" }}>
           <Link to="/tasks/add">
             <button 
-              className="btn btn-primary btn-sm m-2 btn-radious justify-content-center"
+              className="btn btn-primary btn-sm m-2 justify-content-center"
               onClick={handleButtonClick}
             >
               Add Task
